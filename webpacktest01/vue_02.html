@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.常用指令</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <a :href="url">
+        {{name}}
+    </a>
+
+    <input v-model="id1" >+
+    <input v-model="id2" >=
+    {{result}}
+    <button v-on:click="change">计算</button>
+</div>
+
+</body>
+<script>
+    var VM = new Vue({
+        el:"#app",
+        data:{
+            name:"计算器",
+            id1:0,
+            id2:0,
+            result:0,
+            url:'https://www.baidu.com'
+        },
+        methods:{
+            change:function(){
+                this.result = Number.parseInt(this.id1)+Number.parseInt(this.id2);
+                alert(this.result);
+            }
+        }
+    });
+</script>
+</html>
